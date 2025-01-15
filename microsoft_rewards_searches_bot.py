@@ -13,13 +13,16 @@ from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 
 class MicrosoftRewardsBot:
-    def __init__(self):
+    def __init__(self, headless=False):
+        self.headless = headless
         self.setup_driver()
         self.search_terms = self.generate_search_terms()
         
     def setup_driver(self):
         chrome_options = Options()
         chrome_options.add_argument('--start-maximized')
+        if self.headless:
+            chrome_options.add_argument('--headless')
         chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
         service = Service()
         self.driver = webdriver.Chrome(service=service, options=chrome_options)
@@ -102,10 +105,12 @@ def main():
     password = os.getenv('PASSWORD')
     
     if not email or not password:
-        print("Error: Please set MS_REWARDS_EMAIL and MS_REWARDS_PASSWORD in .env file")
+        print("Error: Please set EMAIL and PASSWORD in .env file")
         return
     
-    bot = MicrosoftRewardsBot()
+    headless_mode = True
+    
+    bot = MicrosoftRewardsBot(headless=headless_mode)
     try:
         bot.login(email, password)
         time.sleep(3)

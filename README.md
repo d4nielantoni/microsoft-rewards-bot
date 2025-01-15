@@ -34,15 +34,8 @@ O bot irá:
 
 ## Observações
 
-- O bot está configurado para fazer 30 pesquisas por padrão
+- O bot está configurado para fazer 30 pesquisas por padrão (3 pontos por pesquisa, somando os 90 pontos diários)
 - Você pode modificar o número de pesquisas alterando o parâmetro `num_searches` na função `perform_searches`
-- Para executar em modo headless (sem abrir o navegador), descomente a linha `chrome_options.add_argument('--headless')` no código
+- Para executar em modo headless (sem abrir o navegador), na linha do headless_mode, troque `headless_mode=False` por `headless_mode=True`
 
-## Segurança
 
-- Suas credenciais são solicitadas durante a execução e não são armazenadas
-- Recomenda-se não compartilhar suas credenciais ou incluí-las diretamente no código
-
-## Aviso Legal
-
-Este bot é apenas para fins educacionais. O uso de bots pode violar os termos de serviço do Microsoft Rewards.
