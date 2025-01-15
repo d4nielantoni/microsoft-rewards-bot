@@ -1,0 +1,13 @@
+.env
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+venv/
+env/
+ENV/
+
+*.log
+
+*.exe
